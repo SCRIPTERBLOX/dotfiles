@@ -1,0 +1,41 @@
+[terminal]
+shell="fish"
+
+[window]
+padding = { x = 5, y = 5 }
+opacity = 0.5
+
+[colors]
+primary = { background = "#000000", foreground = "#ffffff" }
+#draw_bold_text_with_bright_colors = true
+
+[colors.normal]
+black = "#000000"
+red = "#ff0000"
+green = "#00ff00"
+yellow = "#ffff00"
+blue = "#21A0C0"
+magenta = "#aa22aa"
+cyan = "#00aaaa"
+white = "#ffffff"
+
+[colors.bright]
+black = "#000000"
+red = "#ff0000"
+green = "#00ff00"
+yellow = "#ffff00"
+blue = "#65CBFF"
+magenta = "#aa22aa"
+cyan = "#00ffff"
+white = "#ffffff"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size = 15.0
+glyph_offset = { x = 0, y = 0 }
+
+[env]
+TERM = "xterm-256color"

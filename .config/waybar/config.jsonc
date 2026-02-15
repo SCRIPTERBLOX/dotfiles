@@ -1,0 +1,141 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 55,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 10,
+    "gtk-layer-shell": true,
+    "modules-left": [
+        //"backlight",
+        "pulseaudio#audio",
+        "pulseaudio#microphone",
+	"hyprland/window",
+	"custom/cava"
+    ],
+    "modules-right": [
+	"cpu",
+	"memory",
+        "tray",
+	"custom/power"
+    ],
+    "modules-center": [
+	"hyprland/workspaces",
+        "clock"
+    ],
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "format": "{}"
+        //"on-click-middle": "playerctl play-pause",
+        //"on-click-right": "playerctl next",
+        //"on-click-left": "playerctl previous"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󰃟"],
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "on-click": "",
+        "tooltip": true,
+        "tooltip-format": "{percent}%"
+    },
+    "pulseaudio#audio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂯{icon}",
+        "format-bluetooth-muted": "󰂯󰖁",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "tooltip": true,
+        "tooltip-format": "{icon} {desc} {volume}%"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        // "format-source": "󰍬 {volume}%",
+        "format-source": "󰍬",
+        // "format-source-muted": "󰍭 {volume}%",
+        "format-source-muted": "󰍭",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "max-volume": 100,
+        "tooltip": true,
+        "tooltip-format": "{icon} {desc} {volume}%"
+    },
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+	    "1": "一",
+	    "2": "二",
+	    "3": "三",
+	    "4": "四",
+	    "5": "五",
+	    "6": "六",
+	    "7": "七",
+	    "8": "八",
+	    "9": "九",
+	    "10": "十",
+	    "active": ""
+	},
+	"persistant-workspaces": {
+	    "*": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+	},
+	"all-outputs": true,
+	"persistant-only": false,
+	"active-only": false
+    },
+    "hyprland/submap": {
+        "format": "{}",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": " <span font_desc='Iosevka Raven 12'>{:.40}</span> ",
+        "separate-outputs": false
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "on-click": "",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {used}G/{total}G",
+	"tooltip-format": "({used}G/{total}G)",
+        "on-click": "",
+        "tooltip": false
+    },
+    "clock": {
+        "interval": 5,
+        "format-alt": "󰥔\n{:%I\n%M\n%p}",
+        "format": "󰥔 {:%H:%M  󰣆  %d/%m/%y}",
+        "tooltip": true,
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "format": {
+                "today": "<span color='#0dbc79'>{}</span>"
+            }
+        }
+    },
+    "custom/power": {
+        "format": "⏻",
+	"on-click": "wlogout"
+    }
+}

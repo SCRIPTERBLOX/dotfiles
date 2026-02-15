@@ -1,0 +1,80 @@
+@import "themes/blue.css";
+
+@define-color red        #F38BA8;
+@define-color outline	 #051128;
+
+* {
+  font-family:
+    Iosevka,
+    Material Design Icons Desktop;
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  color: @text;
+  margin-bottom: 0px;
+}
+
+tooltip {
+    border: 1px solid @darkgray;
+    border-radius: 0;
+}
+
+#workspaces button {
+    color: @button-text;
+}
+
+#workspaces button:hover {
+    color: @text;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: @text;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#submap,
+#mode,
+#tray,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio.audio,
+#pulseaudio.microphone,
+#network.wlo1,
+#network.eno1,
+#bluetooth,
+#battery,
+#clock,
+#mpd,
+#custom-media,
+#window,
+#custom-cava,
+#workspaces,
+#custom-notification,
+#custom-power {
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    border: 2px solid @text;
+    padding-left: 4px;
+    padding-right: 4px;
+    background: radial-gradient(
+        circle at 50%,
+	@background-a,
+	@background-a 0%,
+	@background-b 100%
+    );
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#custom-cava {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
